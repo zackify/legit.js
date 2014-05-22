@@ -3,10 +3,12 @@ function mz(selector){
 	self.selector = selector
 	self.element = document.querySelector(self.selector);
 
+	//grab the html of an element mz('selector').html()
 	self.html = function(){
 		return self.element
 	}
 	
+	//add a CSS rule to a stylesheet easily. mz('selector').addRule(name,value)
 	self.addRule = function(name,value,stylesheet){
 		if(!stylesheet) stylesheet = 0
 
