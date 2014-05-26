@@ -3,12 +3,31 @@ function mz(selector){
 	self.selector = selector;
 	self.element = document.querySelector(self.selector);
 
+	/* BASIC FUNCTIONS */
+
 	//grab the html of an element mz('selector').html()
 	self.html = function(){
 		return self.element;
 	}
+	//get the height of an element
+	self.height = function(){
+		return self.element.offsetHeight;
+	}
+	//get the width
+	self.width = function(){
+		return self.element.offsetWidth;
+	}
+	//get parent element
+	self.parent = function(){
+		self.element = self.element.parentNode
+		return self;
+	}
 
-	//add a CSS rule to a stylesheet easily. mz('selector').insertRule(name,value)
+
+
+	/* CSS Related FUNCTIONS */
+
+	//add a CSS rule directly to the stylesheet
 	self.insertRule = function(name,value,position,stylesheet){
 		if(!stylesheet) stylesheet = 0;
 		if(!position) position = 0;
@@ -26,6 +45,11 @@ function mz(selector){
 		//if none are available, give error
 		else console.error('No style sheets available to modify');
 
+		return self;
+	}
+	//add css rule inline
+	self.css = function(name,value){
+		self.element.style[name] = value;
 		return self;
 	}
 
