@@ -22,6 +22,14 @@ function mz(selector){
 		self.element = self.element.parentNode
 		return self;
 	}
+	//get and set attribute values
+	self.attr = function(name,value){
+		//if no value set, return the current value
+		if(!value) return self.element.getAttribute(name)
+
+		self.element.setAttribute(name,value);
+		return self;
+	}
 
 
 
@@ -49,6 +57,9 @@ function mz(selector){
 	}
 	//add css rule inline
 	self.css = function(name,value){
+		//if no value set, return the current value
+		if(!value) return self.element.style[name]
+
 		self.element.style[name] = value;
 		return self;
 	}
