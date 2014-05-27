@@ -9,7 +9,7 @@ Legit.js is meant to be an extremely lightweight library for manipulating the DO
 Click Events
 ----
 
-All native click events (see [here](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers.onabort)) work with simplify. Our event system works similar to jQuery:
+All native click events (see [here](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers.onabort)) work with legit. Our event system works similar to jQuery:
 ```
 _('div').on('click', function(event){
     console.log(event);
