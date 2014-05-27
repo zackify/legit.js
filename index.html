@@ -1,8 +1,13 @@
-<script src="mz.js"></script>
+<script src="legit.js"></script>
 <style src="test.css"></style>
 <script type="text/javascript">
 window.onload = function(){
-	console.log(mz('div').css('background-color','black').attr('lol','hi').attr('lol'))
+	console.log(_('div').parent().children(1).css('background-color','black').attr('lol','hi'))
+	_('div').css('color','white')
+
+	_('div').on('click',function(event){
+		console.log(_(event.target).css('background-color','yellow'))
+	})
 }
 </script>
 

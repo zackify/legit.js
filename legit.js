@@ -1,7 +1,10 @@
-function mz(selector){
+function _(selector){
 	var self = {};
 	self.selector = selector;
-	self.element = document.querySelector(self.selector);
+	if(typeof selector === 'object'){
+		self.element = self.selector
+	}
+	else self.element = document.querySelector(self.selector);
 
 	/* BASIC FUNCTIONS */
 
@@ -19,19 +22,30 @@ function mz(selector){
 	}
 	//get parent element
 	self.parent = function(){
-		self.element = self.element.parentNode
+		self.element = self.element.parentNode;
+		return self;
+	}
+	//get children elements
+	self.children = function(key){
+		if(!key) key = 0;
+		self.element = self.element.childNodes[key];
 		return self;
 	}
 	//get and set attribute values
 	self.attr = function(name,value){
 		//if no value set, return the current value
-		if(!value) return self.element.getAttribute(name)
+		if(!value) return self.element.getAttribute(name);
 
 		self.element.setAttribute(name,value);
 		return self;
 	}
 
+	/* Event FUNCTIONS */
 
+	self.on = function(type,callback){
+		self.element['on' + type] = callback;
+		return self
+	}
 
 	/* CSS Related FUNCTIONS */
 
@@ -58,7 +72,7 @@ function mz(selector){
 	//add css rule inline
 	self.css = function(name,value){
 		//if no value set, return the current value
-		if(!value) return self.element.style[name]
+		if(!value) return self.element.style[name];
 
 		self.element.style[name] = value;
 		return self;
