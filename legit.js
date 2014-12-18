@@ -4,7 +4,7 @@ function _(selector){
 	if(typeof selector === 'object'){
 		self.element = self.selector
 	}
-	else self.element = document.querySelectorAll(self.selector);
+	else self.element = document.querySelector(self.selector);
 
 	/* BASIC FUNCTIONS */
 
