@@ -4,7 +4,7 @@ function _(selector){
 	if(typeof selector === 'object'){
 		self.element = self.selector
 	}
-	else self.element = document.querySelector(self.selector);
+	else self.element = document.querySelectorAll(self.selector); /* use querySelectorAll, find the length of the node/array and then use a loop to find all elements.*/
 
 	/* BASIC FUNCTIONS */
 
